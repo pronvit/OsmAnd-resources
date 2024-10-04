@@ -25,22 +25,19 @@
 			<apply_if noPolygons="true" attrColorValue="#2aff7c00"/>
 			<apply_if nightMode="true" attrColorValue="#2aff7c00"/>
 		</case>
-		<case contourColorScheme="brown" attrColorValue="#35bd6819">
-			<apply_if noPolygons="true" attrColorValue="#44C39F7D"/>
-			<apply_if nightMode="true" attrColorValue="#44C39F7D"/>
-		</case>
-		<case contourColorScheme="dark_brown" attrColorValue="#22522D0B">
-			<apply_if noPolygons="true" attrColorValue="#4437250B"/>
-			<apply_if nightMode="true" attrColorValue="#44C39F7D"/>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+		<case contourColorScheme="dark_brown" attrColorValue="#44522D0B">
+			<apply_if noPolygons="true" attrColorValue="#6637250B"/>
+			<apply_if nightMode="true" attrColorValue="#66C39F7D"/>
 		</case>
 		<case contourColorScheme="dark_orange" attrColorValue="#44bd6819">
 			<apply_if noPolygons="true" attrColorValue="#44FFEAD6"/>
 		</case>
 		<case contourColorScheme="red" attrColorValue="#44ff0000"/>
 		<case contourColorScheme="purple" attrColorValue="#66B900F7"/>
-		<case attrColorValue="#2aff7c00">
-			<apply_if noPolygons="true" attrColorValue="#2aff7c00"/>
-			<apply_if nightMode="true" attrColorValue="#2aff7c00"/>
+		<case attrColorValue="#44522D0B">
+			<apply_if noPolygons="true" attrColorValue="#6637250B"/>
+			<apply_if nightMode="true" attrColorValue="#66C39F7D"/>
 		</case>
 		<!--		<case engine_v1="false" attrColorValue="#15ff7c00"/>-->
 	</renderingAttribute>
@@ -52,22 +49,19 @@
 			<apply_if noPolygons="true" attrColorValue="#35ea7300"/>
 			<apply_if nightMode="true" attrColorValue="#35ea7300"/>
 		</case>
-		<case contourColorScheme="brown" attrColorValue="#459C5615">
-			<apply_if noPolygons="true" attrColorValue="#66C39F7D"/>
-			<apply_if nightMode="true" attrColorValue="#66C39F7D"/>
-		</case>
-		<case contourColorScheme="dark_brown" attrColorValue="#55522D0B">
-			<apply_if noPolygons="true" attrColorValue="#8837250B"/>
-			<apply_if nightMode="true" attrColorValue="#88C39F7D"/>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+		<case contourColorScheme="dark_brown" attrColorValue="#77522D0B">
+			<apply_if noPolygons="true" attrColorValue="#aa37250B"/>
+			<apply_if nightMode="true" attrColorValue="#aaC39F7D"/>
 		</case>
 		<case contourColorScheme="dark_orange" attrColorValue="#889C5615">
 			<apply_if noPolygons="true" attrColorValue="#88FFEAD6"/>
 		</case>
 		<case contourColorScheme="red" attrColorValue="#44ff0000"/>
 		<case contourColorScheme="purple" attrColorValue="#66B900F7"/>
-		<case attrColorValue="#2aea7300">
-			<apply_if noPolygons="true" attrColorValue="#35ea7300"/>
-			<apply_if nightMode="true" attrColorValue="#35ea7300"/>
+		<case attrColorValue="#77522D0B">
+			<apply_if noPolygons="true" attrColorValue="#aa37250B"/>
+			<apply_if nightMode="true" attrColorValue="#aaC39F7D"/>
 		</case>
 		<!--<case engine_v1="false" attrColorValue="#15ea7300"/>-->
 	</renderingAttribute>
@@ -79,22 +73,19 @@
 			<apply_if noPolygons="true" attrColorValue="#35ea7300"/>
 			<apply_if nightMode="true" attrColorValue="#35ea7300"/>
 		</case>
-		<case contourColorScheme="brown" attrColorValue="#459C5615">
-			<apply_if noPolygons="true" attrColorValue="#66C39F7D"/>
-			<apply_if nightMode="true" attrColorValue="#66C39F7D"/>
-		</case>
-		<case contourColorScheme="dark_brown" attrColorValue="#55522D0B">
-			<apply_if noPolygons="true" attrColorValue="#8837250B"/>
-			<apply_if nightMode="true" attrColorValue="#88C39F7D"/>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+		<case contourColorScheme="dark_brown" attrColorValue="#77522D0B">
+			<apply_if noPolygons="true" attrColorValue="#aa37250B"/>
+			<apply_if nightMode="true" attrColorValue="#aaC39F7D"/>
 		</case>
 		<case contourColorScheme="dark_orange" attrColorValue="#aa9C5615">
 			<apply_if noPolygons="true" attrColorValue="#AAFFEAD6"/>
 		</case>
 		<case contourColorScheme="red" attrColorValue="#44ff0000"/>
 		<case contourColorScheme="purple" attrColorValue="#66B900F7"/>
-		<case attrColorValue="#2aea7300">
-			<apply_if noPolygons="true" attrColorValue="#35ea7300"/>
-			<apply_if nightMode="true" attrColorValue="#35ea7300"/>
+		<case attrColorValue="#77522D0B">
+			<apply_if noPolygons="true" attrColorValue="#aa37250B"/>
+			<apply_if nightMode="true" attrColorValue="#aaC39F7D"/>
 		</case>
 		<!--<case engine_v1="false" attrColorValue="#15ea7300"/>-->
 	</renderingAttribute>
@@ -109,7 +100,15 @@
 		<case contourColorScheme="purple" attrColorValue="#75009C">
 			<apply_if nightMode="true" attrColorValue="#E69AFF"/>
 		</case>
-		<case attrColorValue="#888888"/>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+        <case contourColorScheme="dark_brown" attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
+        <case attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
 	</renderingAttribute>
 	<renderingAttribute name="contour20mTextColor">
 		<case contourColorScheme="white" attrColorValue="#F1F1F1"/>
@@ -120,9 +119,15 @@
 		<case contourColorScheme="purple" attrColorValue="#75009C">
 			<apply_if nightMode="true" attrColorValue="#E69AFF"/>
 		</case>
-		<case attrColorValue="#777777">
-			<apply_if nightMode="true" attrColorValue="#999999"/>
-		</case>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+        <case contourColorScheme="dark_brown" attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
+        <case attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
 	</renderingAttribute>
 	<renderingAttribute name="contour50mTextColor">
 		<case contourColorScheme="white" attrColorValue="#ffffff"/>
@@ -133,9 +138,15 @@
 		<case contourColorScheme="purple" attrColorValue="#75009C">
 			<apply_if nightMode="true" attrColorValue="#E69AFF"/>
 		</case>
-		<case attrColorValue="#777777">
-			<apply_if nightMode="true" attrColorValue="#AAAAAA"/>
-		</case>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+        <case contourColorScheme="dark_brown" attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
+        <case attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
 	</renderingAttribute>
 	<renderingAttribute name="contour100mTextColor">
 		<case contourColorScheme="white" attrColorValue="#ffffff"/>
@@ -146,9 +157,24 @@
 		<case contourColorScheme="purple" attrColorValue="#75009C">
 			<apply_if nightMode="true" attrColorValue="#E69AFF"/>
 		</case>
-		<case attrColorValue="#444444">
-			<apply_if nightMode="true" attrColorValue="#BBBBBB"/>
-		</case>
+		<case contourColorScheme="brown" attrColorValue="#cc9b7355"/>
+        <case contourColorScheme="dark_brown" attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
+        <case attrColorValue="#dd522D0B">
+            <apply_if noPolygons="true" attrColorValue="#dd37250B"/>
+            <apply_if nightMode="true" attrColorValue="#ddC39F7D"/>
+        </case>
+	</renderingAttribute>
+
+	<renderingAttribute name="textHaloColor">
+		<case attrColorValue="#000000"/>
+	</renderingAttribute>
+
+	<renderingAttribute name="textHaloRadius">
+		<case noPolygons="true" attrFloatValue=":1"/>
+		<case attrFloatValue="0"/>
 	</renderingAttribute>
 
 	<renderingConstant name="null" value="#00000000"/>
@@ -181,25 +207,29 @@
 			<case minzoom="15" contourLines="15"/>
 			<case minzoom="16" contourLines="16"/>
 			<apply>
-				<case minzoom="14" additional="contourtype=20m" textColor="$contour20mTextColor" textSize="10" textMinDistance="70">
+				<case minzoom="14" additional="contourtype=20m" textColor="$contour20mTextColor" textSize="10" textBold="true" textMinDistance="70">
+					<apply_if noPolygons="true" textHaloRadius="$textHaloRadius" textHaloColor="$textHaloColor"/>					
 					<apply_if nightMode="true" textHaloRadius=":1" textHaloColor="#55777777"/>
 				</case>
 				<switch minzoom="15">
 					<case additional="contourtype=10m"/>
 					<case additional="contourtype=40f"/>
-					<apply textColor="$contour10mTextColor" textSize="9" textMinDistance="80"/>
+					<apply textColor="$contour10mTextColor" textSize="9" textBold="true" textMinDistance="80"/>
+					<apply_if noPolygons="true" textHaloRadius="$textHaloRadius" textHaloColor="$textHaloColor"/>
 					<apply_if nightMode="true" textHaloRadius=":1" textHaloColor="#33777777"/>
 				</switch>
 				<switch>
 					<case additional="contourtype=100m" textSize="12"/>
 					<case additional="contourtype=1000f" textSize="13"/>
 					<case additional="contourtype=200f" textSize="12"/>
-					<apply textColor="$contour100mTextColor" textMinDistance="40" textOrder="250"/>
+					<apply textColor="$contour100mTextColor" textBold="true" textMinDistance="40" textOrder="250"/>
+					<apply_if noPolygons="true" textHaloRadius="$textHaloRadius" textHaloColor="$textHaloColor"/>
 					<apply_if nightMode="true" textHaloRadius=":1" textHaloColor="#77777777"/>
 				</switch>
 				<switch>
 					<case additional="contourtype=50m"/>
-					<apply textColor="$contour50mTextColor" textSize="10" textMinDistance="60" textOrder="254"/>
+					<apply textColor="$contour50mTextColor" textSize="10" textBold="true" textMinDistance="60" textOrder="254"/>
+					<apply_if noPolygons="true" textHaloRadius="$textHaloRadius" textHaloColor="$textHaloColor"/>
 					<apply_if nightMode="true" textHaloRadius=":1" textHaloColor="#66777777"/>
 				</switch>
 			</apply>
@@ -248,7 +278,7 @@
 					<case additional="contourtype=100m" color="$contourLineColor100m"/>
 					<case additional="contourtype=200f" color="$contourLineColor100m"/>
 					<apply>
-						<case contourWidth="thin" strokeWidth="1"/>
+						<case contourWidth="thin" strokeWidth="0.75"/>
 						<case contourWidth="medium" strokeWidth="1.5"/>
 						<case contourWidth="thick" strokeWidth="2"/>
 						<case strokeWidth="1.5"/>
@@ -257,10 +287,10 @@
 				<switch minzoom="11">
 					<case additional="contourtype=1000f" color="$contourLineColor100m"/>
 					<apply>
-						<case contourWidth="thin" strokeWidth="1.5"/>
-						<case contourWidth="medium" strokeWidth="2"/>
-						<case contourWidth="thick" strokeWidth="2.5"/>
-						<case strokeWidth="2"/>
+						<case contourWidth="thin" strokeWidth="1"/>
+						<case contourWidth="medium" strokeWidth="1.5"/>
+						<case contourWidth="thick" strokeWidth="2"/>
+						<case strokeWidth="1.5"/>
 					</apply>
 				</switch>
 			</apply>
