@@ -5725,7 +5725,7 @@
 					<case minzoom="16" tag="leisure" value="horse_riding" icon="equestrian" shield="gray_round_shield" iconVisibleSize="24" iconOrder="166">
 						<apply_if nightMode="true" shield="gray_round_night_shield"/>
 					</case>
-					<case minzoom="16" tag="leisure" value="playground" icon="leisure_playground" iconOrder="167" iconVisibleSize="40" intersectionSizeFactor="2.5"/>
+					<case minzoom="16" tag="leisure" value="playground" icon="leisure_playground" shield="green_round_shield" iconOrder="130" iconVisibleSize="40" intersectionSizeFactor="1"/>
 					<case minzoom="16" tag="leisure" value="dog_park" icon="dog_park" shield="green_round_shield" iconOrder="250" iconVisibleSize="40" intersectionSizeFactor="2.5">
 						<apply_if nightMode="true" shield="green_round_night_shield"/>
 					</case>
@@ -8313,6 +8313,7 @@
 				<apply_if minzoom="18" maxzoom="18" strokeWidth_2="4.9:4.9" strokeWidth_3="4.9:4.9"/>
 				<apply_if minzoom="19" strokeWidth_2="6:6" strokeWidth_3="6:6"/>
 			</switch>
+
 			<!-- Next segment: Highways without grade distinction (cycleway, bridleway, black path): pathEffect 4_2. Base setting for highways with possible grade distinction but none specified (track, red footway): 5_5 -->
 			<switch>
 				<switch strokeWidth="0.1">
@@ -8438,6 +8439,7 @@
 						<apply_if nightMode="true" color__1="#ffffff" color_0="#000000"/>
 					</apply_if>
 				</switch>
+
 				<!-- Assign strokeWidth for surface, smoothness and access -->
 				<apply_if minzoom="14" maxzoom="14" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
 				<apply_if minzoom="15" maxzoom="15" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
@@ -8445,12 +8447,16 @@
 				<apply_if minzoom="17" maxzoom="17" strokeWidth_2="4.5:4.5" strokeWidth_3="4.5:4.5"/>
 				<apply_if minzoom="18" maxzoom="18" strokeWidth_2="5:5" strokeWidth_3="5:5"/>
 				<apply_if minzoom="19" strokeWidth_2="6.5:6.5" strokeWidth_3="6.5:6.5"/>
+
 				<apply_if noPolygons="false" color_4="$trackSubstrateColor"/> <!-- Substrate -->
+
 				<apply_if minzoom="16"> <!-- for new OpenGL engine only -->
 					<apply_if additional="oneway=yes" pathIcon="oneway_gray_big" pathIconStep="70"/>
 					<apply_if additional="oneway=-1" pathIcon="oneway_reverse_gray_big" pathIconStep="70"/>
 				</apply_if>
 			</switch>
+
+			<!-- Tolls and access -->
 			<apply>
 				<switch cap_3="ROUND">
 					<switch minzoom="14" showToll="true">
@@ -8467,18 +8473,29 @@
 								<case additional="motor_vehicle=no"/>
 								<case additional="motorcar=private"/>
 								<case additional="motorcar=no"/>
+								<case additional="access=private"/>
+								<case additional="access=no"/>
 								<apply_if color_3="$accessPrivateColor" color_2="$null"/>
+							</switch>
+							<switch>
+								<case additional="vehicle=permit"/>
+								<case additional="motor_vehicle=permit"/>
+								<case additional="motorcar=permit"/>
+								<case additional="access=permit"/>
+								<apply color_3="$accessPermitColor" color_2="$null"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=destination"/>
 								<case additional="motor_vehicle=destination"/>
 								<case additional="motorcar=destination"/>
+								<case additional="access=destination"/>
 								<apply color_3="$accessDestinationColor" color_2="$null"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=permissive"/>
 								<case additional="motor_vehicle=permissive"/>
 								<case additional="motorcar=permissive"/>
+								<case additional="access=permissive"/>
 								<apply color_3="$accessPermissiveColor" color_2="$null"/>
 							</switch>
 							<switch>
@@ -8488,25 +8505,41 @@
 								<case additional="motor_vehicle=agricultural;forestry"/>
 								<case additional="motorcar=agricultural"/>
 								<case additional="motorcar=agricultural;forestry"/>
+								<case additional="access=agricultural"/>
+								<case additional="access=agricultural;forestry"/>
 								<apply color_3="$accessAgriculturalColor" color_2="$null"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=forestry"/>
 								<case additional="motor_vehicle=forestry"/>
 								<case additional="motorcar=forestry"/>
+								<case additional="access=forestry"/>
 								<apply color_3="$accessForestryColor" color_2="$null"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=customers"/>
 								<case additional="motor_vehicle=customers"/>
 								<case additional="motorcar=customers"/>
+								<case additional="access=customers"/>
 								<apply color_3="$accessCustomersColor" color_2="$null"/>
+							</switch>
+							<switch>
+								<case additional="vehicle=emergency"/>
+								<case additional="motor_vehicle=emergency"/>
+								<case additional="motorcar=emergency"/>
+								<case additional="access=emergency"/>
+								<apply color_3="$accessEmergencyColor" color_2="$null"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=delivery"/>
 								<case additional="motor_vehicle=delivery"/>
 								<case additional="motorcar=delivery"/>
+								<case additional="access=delivery"/>
 								<apply color_3="$accessDeliveryColor" color_2="$null"/>
+							</switch>
+							<switch>
+								<case additional="ski=no"/>
+								<apply color_3="$accessSkiNoColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=yes"/>
@@ -8514,21 +8547,8 @@
 								<case additional="motorcar=yes"/>
 							</switch>
 						</switch>
-						<!--<switch minzoom="15">
-							<case additional="access=private" color_3="$accessPrivateColor"/>
-							<case additional="access=no" color_3="$accessPrivateColor"/>
-							<case additional="access=permit" color_3="$accessPermitColor"/>
-							<case additional="access=destination" color_3="$accessDestinationColor"/>
-							<case additional="access=permissive" color_3="$accessPermissiveColor"/>
-							<case additional="access=agricultural" color_3="$accessAgriculturalColor"/>
-							<case additional="access=forestry" color_3="$accessForestryColor"/>
-							<case additional="access=customers" color_3="$accessCustomersColor"/>
-							<case additional="access=delivery" color_3="$accessDeliveryColor"/>
-							<case additional="access=emergency" color_3="$accessEmergencyColor"/>
-							<case additional="ski=no" color_3="$accessSkiNoColor"/>
-							<apply color_2="$null"/>
-						</switch>-->
 					</switch>
+
 					<apply_if minzoom="15" maxzoom="15" pathEffect_3="1_8"/>
 					<apply_if minzoom="16" maxzoom="16" pathEffect_3="1_11"/>
 					<apply_if minzoom="17" maxzoom="17" pathEffect_3="1_13"/>
