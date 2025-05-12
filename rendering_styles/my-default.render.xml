@@ -775,11 +775,13 @@
 		</renderingAttribute>
 		<renderingAttribute name="trackColor">
 			<case nightMode="true" attrColorValue="#DADADA"/>
-			<case attrColorValue="#d0ffd0"/>
+			<case attrColorValue="#ffffff">
+				<apply_if noPolygons="true" attrColorValue="#f0f0f0"/>
+			</case>
 		</renderingAttribute>
 		<renderingAttribute name="trackSubstrateColor">
 			<!-- <case noPolygons="true" attrColorValue="#33000000"/> -->
-			<case attrColorValue="#33000000"/> <!-- ZLZK track and path substrate color little more dark and not grey -->
+			<case attrColorValue="#33000000"/>
 			<apply_if additional="winter_road=yes" attrColorValue="#aa458FFF"/>
 			<apply_if additional="ice_road=yes" attrColorValue="#aa458FFF"/>
 		</renderingAttribute>
@@ -828,7 +830,7 @@
 		</renderingAttribute>
 		<renderingAttribute name="pathColor">
 			<case nightMode="true" attrColorValue="#FFD6CF"/>
-			<case attrColorValue="#ffdddd"/>
+			<case attrColorValue="#ddffdd"/>
 		</renderingAttribute>
 		<renderingConstant name="pathStrokeWidth" value="1.5"/>
 		<renderingConstant name="pathLowZoomStrokeWidth" value="0.6"/>
@@ -1807,15 +1809,20 @@
 		</renderingAttribute>	
 		<renderingConstant name="landuseReservoirMinZoom" value="7"/>
 
-		<renderingConstant name="offroadLowMinorWidthMin" value="0.6"/> <!-- ZLZK minor offroad inner @ low zoom -->
-		<renderingConstant name="offroadLowMinorWidthMax" value="1.6"/> <!-- ZLZK minor offroad outline @ low zoom -->
-		<renderingConstant name="offroadLowMajorWidthMin" value="0.8"/> <!-- ZLZK major offroad inner @ low zoom -->
-		<renderingConstant name="offroadLowMajorWidthMax" value="1.8"/> <!-- ZLZK major offroad outline @ low zoom -->
+		<renderingConstant name="offroadLowMinorWidthMin" value="0.6"/>
+		<renderingConstant name="offroadLowMinorWidthMax" value="1.6"/>
+		<renderingConstant name="offroadLowMajorWidthMin" value="0.8"/>
+		<renderingConstant name="offroadLowMajorWidthMax" value="1.8"/>
 
-		<renderingConstant name="offroadMinorWidthMin" value="2"/> <!-- ZLZK minor offroad inner -->
-		<renderingConstant name="offroadMinorWidthMax" value="3"/> <!-- ZLZK minor offroad outline -->
-		<renderingConstant name="offroadMajorWidthMin" value="3"/> <!-- ZLZK major offroad inner -->
-		<renderingConstant name="offroadMajorWidthMax" value="4"/> <!-- ZLZK major offroad outline -->		
+		<renderingConstant name="offroadLow2MinorWidthMin" value="1.6"/>
+		<renderingConstant name="offroadLow2MinorWidthMax" value="2.6"/>
+		<renderingConstant name="offroadLow2MajorWidthMin" value="1.8"/>
+		<renderingConstant name="offroadLow2MajorWidthMax" value="2.8"/>
+
+		<renderingConstant name="offroadMinorWidthMin" value="2"/>
+		<renderingConstant name="offroadMinorWidthMax" value="3"/>
+		<renderingConstant name="offroadMajorWidthMin" value="4"/>
+		<renderingConstant name="offroadMajorWidthMax" value="5"/>
 
 		<renderingAttribute name="buildingTextColor">
 			<case nightMode="true" attrColorValue="#7a9399"/>
@@ -2001,50 +2008,46 @@
 
 		<renderingAttribute name="accessPrivateColor">
 			<case nightMode="true" attrColorValue="#B45D5D"/>
-			<case attrColorValue="#ad0b0b"/>
+			<case attrColorValue="#eead0b0b"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessPermitColor">
 			<case nightMode="true" attrColorValue="#3C9D7A"/>
-			<case attrColorValue="#7FE7C1"/>
-		</renderingAttribute>
-		<renderingAttribute name="accessSkiNoColor">
-			<case nightMode="true" attrColorValue="$null"/>
-			<case attrColorValue="$null"/>
+			<case attrColorValue="#ee7FE7C1"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessDestinationColor">
 			<case nightMode="true" attrColorValue="#7CA1B9"/>
-			<case attrColorValue="#8db8d3"/>
+			<case attrColorValue="#ee8db8d3"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessPermissiveColor">
 			<case nightMode="true" attrColorValue="#69A65E"/>
-			<case attrColorValue="#9afb87"/>
+			<case attrColorValue="#ee9afb87"/>
 		</renderingAttribute>
 		<renderingConstant name="accessPermissiveColorNight2" value="#33512e"/>
 		<renderingAttribute name="accessAgriculturalColor">
 			<case nightMode="true" attrColorValue="#7dad56"/>
-			<case attrColorValue="#8fc763"/>
+			<case attrColorValue="#ee8fc763"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessForestryColor">
 			<case nightMode="true" attrColorValue="#7dad56"/>
-			<case attrColorValue="#9CD96C"/>
+			<case attrColorValue="#ee9CD96C"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessCustomersColor">
 			<case nightMode="true" attrColorValue="#835188"/>
-			<case attrColorValue="#dfb3e5"/>
+			<case attrColorValue="#eedfb3e5"/>
 		</renderingAttribute>
 		<renderingConstant name="accessCustomersColorNight2" value="#5b385f"/>
 		<renderingAttribute name="accessDeliveryColor">
 			<case nightMode="true" attrColorValue="#9383a5"/>
-			<case attrColorValue="#b2aeb7"/>
+			<case attrColorValue="#eeb2aeb7"/>
 		</renderingAttribute>
 		<renderingAttribute name="accessEmergencyColor">
 			<case nightMode="true" attrColorValue="#e17400"/>
-			<case attrColorValue="#fd8500"/>
+			<case attrColorValue="#eefd8500"/>
 		</renderingAttribute>
 
 		<renderingAttribute name="tollColor">
 			<case nightMode="true" attrColorValue="#792E5E"/>
-			<case attrColorValue="#9E2D74"/>
+			<case attrColorValue="#999E2D74"/>
 		</renderingAttribute>
 
 		<renderingConstant name="roadShieldOrder1" value="47"/>
@@ -2475,7 +2478,7 @@
 				<case tag="" value="" order="5"/>
 			</switch>
 
-			<switch point="false" objectType="2" order="81">
+			<switch point="false" objectType="2" order="10">
 				<case tag="osmand_nature_reserve" value="line"/>
 				<case tag="osmand_national_park" value="line"/>
 				<!-- <case tag="osmand_protected_area" value="line"/> -->
@@ -7608,8 +7611,8 @@
 					<case minzoom="6" tag="leisure" value="nature_reserve"/>
 					<case minzoom="8" tag="boundary" value="national_park"/>
 					<apply color="$null"/>
-					<apply_if maxzoom="16" shader="nr3"/>
-					<apply_if maxzoom="16" nightMode="true" shader="nr3_night"/>
+					<apply_if maxzoom="16" shader="nr2"/>
+					<apply_if maxzoom="16" nightMode="true" shader="nr2_night"/>
 				</switch>
 				<!-- <switch>
 					<switch>
@@ -7947,12 +7950,13 @@
 						</apply_if>
 					</apply>
 					<!-- Smoothness, surface, access -->
-					<apply_if minzoom="14" maxzoom="14" strokeWidth_2="2.5:2.5" strokeWidth_3="2.5:2.5"/>
-					<apply_if minzoom="15" maxzoom="15" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
-					<apply_if minzoom="16" maxzoom="16" strokeWidth_2="4:4" strokeWidth_3="4:4"/>
-					<apply_if minzoom="17" maxzoom="17" strokeWidth_2="5:5" strokeWidth_3="5:5"/>
-					<apply_if minzoom="18" maxzoom="18" strokeWidth_2="6:6" strokeWidth_3="6:6"/>
-					<apply_if minzoom="19" strokeWidth_2="7:7" strokeWidth_3="7:7"/>
+					<apply_if minzoom="14" maxzoom="14" strokeWidth_3="2.5:2.5"/>
+					<apply_if minzoom="15" maxzoom="15" strokeWidth_3="3:3"/>
+					<apply_if minzoom="16" maxzoom="16" strokeWidth_3="4:4"/>
+					<apply_if minzoom="17" maxzoom="17" strokeWidth_3="5:5"/>
+					<apply_if minzoom="18" maxzoom="18" strokeWidth_3="6:6"/>
+					<apply_if minzoom="19" strokeWidth_3="7:7"/>
+					<apply pathEffect_3="2_10"/>
 				</switch>
 				<switch>
 					<switch>
@@ -8011,12 +8015,13 @@
 						</apply_if>
 					</apply>
 					<!-- Smoothness, surface, access -->
-					<apply_if minzoom="14" maxzoom="14" strokeWidth_2="1.9:1.9" strokeWidth_3="1.9:1.9"/>
-					<apply_if minzoom="15" maxzoom="15" strokeWidth_2="2.5:2.5" strokeWidth_3="2.5:2.5"/>
-					<apply_if minzoom="16" maxzoom="16" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
-					<apply_if minzoom="17" maxzoom="17" strokeWidth_2="4:4" strokeWidth_3="4:4"/>
-					<apply_if minzoom="18" maxzoom="18" strokeWidth_2="4.7:4.7" strokeWidth_3="4.7:4.7"/>
-					<apply_if minzoom="19" strokeWidth_2="5.7:5.7" strokeWidth_3="5.7:5.7"/>
+					<apply_if minzoom="14" maxzoom="14" strokeWidth_3="1.9:1.9"/>
+					<apply_if minzoom="15" maxzoom="15" strokeWidth_3="2.5:2.5"/>
+					<apply_if minzoom="16" maxzoom="16" strokeWidth_3="3:3"/>
+					<apply_if minzoom="17" maxzoom="17" strokeWidth_3="4:4"/>
+					<apply_if minzoom="18" maxzoom="18" strokeWidth_3="4.7:4.7"/>
+					<apply_if minzoom="19" strokeWidth_3="5.7:5.7"/>
+					<apply pathEffect_3="2_10"/>
 				</switch>
 				<apply_if additional="construction=yes" cap="BUTT" shadowRadius="0" color_0="$constructionHighwayBGColor">
 					<case maxzoom="14" strokeWidth="1:1" strokeWidth_0="1:1" pathEffect="3_4" strokeWidth__1="1.4:1.5"/>
@@ -8259,7 +8264,7 @@
 					<case tag="abandoned:highway" value="unclassified"/>
 					<case tag="abandoned:highway" value="residential"/>
 					<case tag="abandoned:highway" value="service"/>
-					<apply color="#55ffffff" pathEffect="20_7" shadowRadius="1" shadowColor="$residentialRoadShadowColor">
+					<apply color="#66ffffff" pathEffect="20_7" shadowRadius="1" shadowColor="$residentialRoadShadowColor">
 						<switch>
 							<case minzoom="15" maxzoom="15" strokeWidth="2:2"/>
 							<case minzoom="16" maxzoom="16" strokeWidth="3.5:3.5"/>
@@ -8283,59 +8288,60 @@
 				</switch>
 
 				<!-- Assign strokeWidth for surface, smoothness and access -->
-				<apply_if minzoom="14" maxzoom="14" strokeWidth_2="1:1" strokeWidth_3="1:1"/>
-				<apply_if minzoom="15" maxzoom="15" strokeWidth_2="2:2" strokeWidth_3="2:2"/>
-				<apply_if minzoom="16" maxzoom="16" strokeWidth_2="2.7:2.7" strokeWidth_3="2.7:2.7"/>
-				<apply_if minzoom="17" maxzoom="17" strokeWidth_2="3.6:3.6" strokeWidth_3="3.6:3.6"/>
-				<apply_if minzoom="18" maxzoom="18" strokeWidth_2="4.9:4.9" strokeWidth_3="4.9:4.9"/>
-				<apply_if minzoom="19" strokeWidth_2="6:6" strokeWidth_3="6:6"/>
+				<apply_if minzoom="14" maxzoom="14" strokeWidth_3="1:1"/>
+				<apply_if minzoom="15" maxzoom="15" strokeWidth_3="2:2"/>
+				<apply_if minzoom="16" maxzoom="16" strokeWidth_3="2.7:2.7"/>
+				<apply_if minzoom="17" maxzoom="17" strokeWidth_3="3.6:3.6"/>
+				<apply_if minzoom="18" maxzoom="18" strokeWidth_3="4.9:4.9"/>
+				<apply_if minzoom="19" strokeWidth_3="6:6"/>
+				<apply pathEffect_3="3_10"/>
 			</switch>
 
 			<!-- Next segment: Highways without grade distinction (cycleway, bridleway, black path): pathEffect 4_2. Base setting for highways with possible grade distinction but none specified (track, red footway): 5_5 -->
 			<switch>
 				<switch strokeWidth="0.1">
 					<case minzoom="$trackMinZoom" tag="highway" value="track">
-						<case maxzoom="13" strokeWidth_4="$offroadLowMajorWidthMax" strokeWidth_5="$offroadLowMajorWidthMin" pathEffect_5=""/> <!-- ZLZK substrate -->
-						<case minzoom="14" strokeWidth_4="$offroadMajorWidthMax" strokeWidth_5="$offroadMajorWidthMin"/> <!-- ZLZK substrate stroke width++ -->
-						<apply minzoom="15" strokeWidth_4="$offroadMajorWidthMax"/> <!-- ZLZK substrate stroke width++ -->
-						<apply color_4="$null" color_5="$trackColor" pathEffect_5="10_3"/> <!-- ZLZK default track path-effect -->
+						<case maxzoom="13" strokeWidth_3="$offroadLowMajorWidthMin" strokeWidth="$offroadLowMajorWidthMax" strokeWidth_2="$offroadLowMajorWidthMin"/>
+						<case minzoom="14" strokeWidth_3="$offroadLow2MajorWidthMin" strokeWidth="$offroadLow2MajorWidthMax" strokeWidth_2="$offroadLow2MajorWidthMin"/>
+						<apply minzoom="15" strokeWidth_3="$offroadMajorWidthMin" strokeWidth="$offroadMajorWidthMax" strokeWidth_2="$offroadMajorWidthMin"/>
+						<apply color="$null" color_2="$trackColor" pathEffect_2="10_5" pathEffect_3="2_13"/>
 					</case>
 
 					<switch>
 						<case minzoom="$pathMinZoom" tag="highway" value="path">
-							<case appMode="bicycle" minzoom="14" additional="bicycle=designated" color_5="$cyclewayColor" pathEffect_5="4_2" strokeWidth_5="1:1"/>
-							<case maxzoom="13" strokeWidth_4="$offroadLowMinorWidthMax" strokeWidth_5="$offroadLowMinorWidthMin"/> <!-- ZLZK substrate -->
-							<case minzoom="14" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin"/> <!-- ZLZK substrate stroke width++ -->
-							<case minzoom="15" strokeWidth_4="$offroadMinorWidthMax"/> <!-- ZLZK substrate stroke width++ -->
-							<apply color_4="$null" color_5="$pathColor" pathEffect_5="10_3"/> <!-- ZLZK default track path-effect -->
+							<case appMode="bicycle" minzoom="14" additional="bicycle=designated" color_2="$cyclewayColor" pathEffect_2="6_3" pathEffect_3="3_6" strokeWidth_2="1:1"/>
+							<case maxzoom="13" strokeWidth_3="$offroadLowMinorWidthMin" strokeWidth="$offroadLowMinorWidthMax" strokeWidth_2="$offroadLowMinorWidthMin"/>
+							<case minzoom="14" strokeWidth_3="$offroadLow2MinorWidthMin" strokeWidth="$offroadLow2MinorWidthMax" strokeWidth_2="$offroadLow2MinorWidthMin"/>
+							<case minzoom="15" strokeWidth_3="$offroadMinorWidthMin" strokeWidth="$offroadMinorWidthMax" strokeWidth_2="$offroadMinorWidthMin"/>
+							<apply color="$null" color_2="$pathColor" pathEffect_2="10_5" pathEffect_3="2_13"/>
 						</case>
 
-						<case minzoom="$footwayMinZoom" tag="highway" value="footway" color_5="$footwayColor">
+						<case minzoom="$footwayMinZoom" tag="highway" value="footway" color_2="$footwayColor">
 							<switch minzoom="$footwayMinZoom" maxzoom="14">
 								<case>
-									<!--<case layer="1" strokeWidth_5="1:1"/>-->
-									<case maxzoom="13" strokeWidth_4="$offroadLowMajorWidthMax" strokeWidth_5="$offroadLowMajorWidthMin" pathEffect_5="$pathLowZoomPathEffect"/> <!-- ZLZK substrate + path -->
-									<case minzoom="14" maxzoom="14" strokeWidth_4="$offroadLowMajorWidthMax" strokeWidth_5="$offroadLowMajorWidthMin" pathEffect_5="2_2"/> <!-- ZLZK substrate -->
+									<!--<case layer="1" strokeWidth_2="1:1"/>-->
+									<case maxzoom="13" strokeWidth_3="$offroadLowMajorWidthMin" strokeWidth="$offroadLowMajorWidthMax" strokeWidth_2="$offroadLowMajorWidthMin" pathEffect_2="$pathLowZoomPathEffect"/>
+									<case minzoom="14" maxzoom="14" strokeWidth_3="$offroadLowMajorWidthMin" strokeWidth="$offroadLowMajorWidthMax" strokeWidth_2="$offroadLowMajorWidthMin" pathEffect_2="2_2"/>
 								</case>
 							</switch>
-							<case minzoom="15" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin" pathEffect_5="2_2"/> <!-- ZLZK substrate -->
+							<case minzoom="15" strokeWidth_3="$offroadMinorWidthMin" strokeWidth="$offroadMinorWidthMax" strokeWidth_2="$offroadMinorWidthMin" pathEffect_2="4_2" pathEffect_3="2_4"/>
 						</case>
 						<apply_if alpineHiking="true">
 							<case alpineHikingScaleScheme="sacScale">
-								<case additional="sac_scale=mountain_hiking" color_5="$sacScaleColorT2" pathEffect_5=""/>
-								<case additional="sac_scale=demanding_mountain_hiking" color_5="$sacScaleColorT3" pathEffect_5="10_3"/>
-								<case additional="sac_scale=alpine_hiking" color_5="$sacScaleColorT4" pathEffect_5=""/>
-								<case additional="sac_scale=demanding_alpine_hiking" color_5="$sacScaleColorT5" pathEffect_5="10_3"/>
-								<case additional="sac_scale=difficult_alpine_hiking" color_5="$sacScaleColorT6" pathEffect_5="3_3"/>
+								<case additional="sac_scale=mountain_hiking" color_2="$sacScaleColorT2" pathEffect_2=""/>
+								<case additional="sac_scale=demanding_mountain_hiking" color_2="$sacScaleColorT3" pathEffect_2="10_3"/>
+								<case additional="sac_scale=alpine_hiking" color_2="$sacScaleColorT4" pathEffect_2=""/>
+								<case additional="sac_scale=demanding_alpine_hiking" color_2="$sacScaleColorT5" pathEffect_2="10_3"/>
+								<case additional="sac_scale=difficult_alpine_hiking" color_2="$sacScaleColorT6" pathEffect_2="3_3"/>
 							</case>
-							<case additional="sac_scale=demanding_mountain_hiking" pathEffect_5="2_6"/>
-							<case additional="sac_scale=alpine_hiking" pathEffect_5="2_6"/>
-							<case additional="sac_scale=demanding_alpine_hiking" pathEffect_5="2_6"/>
-							<case additional="sac_scale=difficult_alpine_hiking" pathEffect_5="2_6"/>
+							<case additional="sac_scale=demanding_mountain_hiking" pathEffect_2="2_6"/>
+							<case additional="sac_scale=alpine_hiking" pathEffect_2="2_6"/>
+							<case additional="sac_scale=demanding_alpine_hiking" pathEffect_2="2_6"/>
+							<case additional="sac_scale=difficult_alpine_hiking" pathEffect_2="2_6"/>
 							<case alpineHikingScaleScheme="caiScale">
-								<case additional="cai_scale=t" color_5="$caiScaleColor" pathEffect_5=""/>
-								<case additional="cai_scale=e" color_5="$caiScaleColor" pathEffect_5="13_2"/>
-								<case additional="cai_scale=ee" color_5="$caiScaleColor" pathEffect_5="6_2"/>
+								<case additional="cai_scale=t" color_2="$caiScaleColor" pathEffect_2=""/>
+								<case additional="cai_scale=e" color_2="$caiScaleColor" pathEffect_2="13_2"/>
+								<case additional="cai_scale=ee" color_2="$caiScaleColor" pathEffect_2="6_2"/>
 								<switch>
 									<case additional="cai_scale=eea"/>
 									<case additional="cai_scale=eea:f"/>
@@ -8344,7 +8350,7 @@
 									<case additional="cai_scale=eea:md"/>
 									<case additional="cai_scale=eea:e"/>
 									<case additional="cai_scale=eai"/>
-									<apply color_5="$caiScaleColor" pathEffect_5="2_2"/>
+									<apply color_2="$caiScaleColor" pathEffect_2="2_2"/>
 								</switch>
 							</case>
 						</apply_if>
@@ -8352,23 +8358,23 @@
 
 					<case minzoom="cyclewayMinZoom" tag="highway" value="cycleway">
 						<case appMode="bicycle">
-							<apply_if maxzoom="13" strokeWidth_5="0.7"/>
-							<apply minzoom="14" strokeWidth_4="1.4:1.4" strokeWidth_5="1:1"/>
+							<apply_if maxzoom="13" strokeWidth_3="0.7" strokeWidth_5="0.7"/>
+							<apply minzoom="14" strokeWidth_3="1:1" strokeWidth_4="1.4:1.4" strokeWidth_5="1:1"/>
 						</case>
-						<case minzoom="14" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin" pathEffect_5="5_2"/> <!-- ZLZK cycleway substrate and path effect -->
+						<case minzoom="14" strokeWidth_3="$offroadMinorWidthMin" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin" pathEffect_5="6_3" pathEffect_3="3_6"/>
 						<apply color_5="$cyclewayColor"/>
 					</case>
 
 					<case minzoom="15" tag="highway" value="steps">
 						<case maxzoom="15">
-							<case layer="1" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case additional="layer=2" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case additional="layer=3" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
-							<case strokeWidth_4="2:2" strokeWidth_5="2:2"/> <!-- If we remove this and let <order> to decide when to hide steps, layer="1" will be also hidden which is undesirable.-->
+							<case layer="1" strokeWidth_3="1.7:1.7" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
+							<case additional="layer=2" strokeWidth_3="1.7:1.7" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
+							<case additional="layer=3" strokeWidth_3="1.7:1.7" strokeWidth_4="1.7:1.7" strokeWidth_5="1.7:1.7"/>
+							<case strokeWidth_3="2:2" strokeWidth_4="2:2" strokeWidth_5="2:2"/> <!-- If we remove this and let <order> to decide when to hide steps, layer="1" will be also hidden which is undesirable.-->
 						</case>
 						<case maxzoom="15" disable="true"/>
-						<case minzoom="16" strokeWidth_4="2:2" strokeWidth_5="2:2"/>
-						<apply color_5="$footwayColor" pathEffect_5="1_2"/>
+						<case minzoom="16" strokeWidth_3="2:2" strokeWidth_4="2:2" strokeWidth_5="2:2"/>
+						<apply pathEffect_3="1_2" color_5="$footwayColor" pathEffect_5="1_2"/>
 						<apply_if additional="conveying=yes" pathEffect_5="2_1"/>
 					</case>
 
@@ -8383,18 +8389,18 @@
 
 					<case minzoom="12" tag="highway" value="bridleway">
 						<case maxzoom="13">
-							<case maxzoom="12" strokeWidth_4="0.9" strokeWidth_5="0.8"/>
-							<case minzoom="13" strokeWidth_4="1.2:1.2" strokeWidth_5="1"/>
+							<case maxzoom="12" strokeWidth_3="0.8" strokeWidth_4="0.9" strokeWidth_5="0.8"/>
+							<case minzoom="13" strokeWidth_3="1" strokeWidth_4="1.2:1.2" strokeWidth_5="1"/>
 						</case>
-						<case minzoom="14" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin"/> <!-- ZLZK substrate -->
-						<apply color_5="$bridlewayColor" pathEffect_5="6_2"/>
+						<case minzoom="14" strokeWidth_3="$offroadMinorWidthMin" strokeWidth_4="$offroadMinorWidthMax" strokeWidth_5="$offroadMinorWidthMin"/>
+						<apply color_5="$bridlewayColor" pathEffect_5="6_2" pathEffect_3="2_6"/>
 					</case>
 
 					<switch minzoom="15">
 						<case tag="abandoned:highway" value="track"/>
 						<case tag="abandoned:highway" value="path"/>
 						<case tag="abandoned:highway" value="footway"/>
-						<apply color="$null" color_5="#55996600" strokeWidth_5="1" pathEffect_5="6_2"/>
+						<apply color="$null" strokeWidth_3="1" strokeWidth_4="1" color_5="#66ffffff" strokeWidth_5="1" pathEffect_5="6_2" pathEffect_3="2_6"/>
 					</switch>
 
 					<!-- Tunnels -->
@@ -8417,15 +8423,7 @@
 					</apply_if>
 				</switch>
 
-				<!-- Assign strokeWidth for surface, smoothness and access -->
-				<apply_if minzoom="14" maxzoom="14" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
-				<apply_if minzoom="15" maxzoom="15" strokeWidth_2="3:3" strokeWidth_3="3:3"/>
-				<apply_if minzoom="16" maxzoom="16" strokeWidth_2="3.7:3.7" strokeWidth_3="3.7:3.7"/>
-				<apply_if minzoom="17" maxzoom="17" strokeWidth_2="4.5:4.5" strokeWidth_3="4.5:4.5"/>
-				<apply_if minzoom="18" maxzoom="18" strokeWidth_2="5:5" strokeWidth_3="5:5"/>
-				<apply_if minzoom="19" strokeWidth_2="6.5:6.5" strokeWidth_3="6.5:6.5"/>
-
-				<apply_if noPolygons="false" color_4="$trackSubstrateColor"/> <!-- Substrate -->
+				<apply_if noPolygons="false" color="$trackSubstrateColor"/> <!-- Substrate -->
 
 				<apply_if minzoom="16"> <!-- for new OpenGL engine only -->
 					<apply_if additional="oneway=yes" pathIcon="oneway_gray_big" pathIconStep="70"/>
@@ -8435,13 +8433,13 @@
 
 			<!-- Tolls and access -->
 			<apply>
-				<switch cap_3="ROUND">
+				<switch cap_3="BUTT">
 					<switch minzoom="14" showToll="true">
 						<case additional="toll:motorcar=yes" color_3="$tollColor"/>
 						<case additional="toll=yes" color_3="$tollColor"/>
-						<apply_if maxzoom="14" strokeWidth_3="2:2" pathEffect_3="1_7"/>
+						<apply_if maxzoom="14" pathEffect_3="1_7"/>
 					</switch>
-					<switch minzoom="15" showAccess="true">
+					<switch minzoom="14" showAccess="true">
 						<switch>
 							<switch>
 								<case additional="vehicle=private"/>
@@ -8452,21 +8450,21 @@
 								<case additional="motorcar=no"/>
 								<case additional="access=private"/>
 								<case additional="access=no"/>
-								<apply_if color_3="$accessPrivateColor" color_2="$null"/>
+								<apply color_3="$accessPrivateColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=permit"/>
 								<case additional="motor_vehicle=permit"/>
 								<case additional="motorcar=permit"/>
 								<case additional="access=permit"/>
-								<apply color_3="$accessPermitColor" color_2="$null"/>
+								<apply color_3="$accessPermitColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=destination"/>
 								<case additional="motor_vehicle=destination"/>
 								<case additional="motorcar=destination"/>
 								<case additional="access=destination"/>
-								<apply color_3="$accessDestinationColor" color_2="$null"/>
+								<apply color_3="$accessDestinationColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=permissive"/>
@@ -8484,53 +8482,38 @@
 								<case additional="motorcar=agricultural;forestry"/>
 								<case additional="access=agricultural"/>
 								<case additional="access=agricultural;forestry"/>
-								<apply color_3="$accessAgriculturalColor" color_2="$null"/>
+								<apply color_3="$accessAgriculturalColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=forestry"/>
 								<case additional="motor_vehicle=forestry"/>
 								<case additional="motorcar=forestry"/>
 								<case additional="access=forestry"/>
-								<apply color_3="$accessForestryColor" color_2="$null"/>
+								<apply color_3="$accessForestryColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=customers"/>
 								<case additional="motor_vehicle=customers"/>
 								<case additional="motorcar=customers"/>
 								<case additional="access=customers"/>
-								<apply color_3="$accessCustomersColor" color_2="$null"/>
+								<apply color_3="$accessCustomersColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=emergency"/>
 								<case additional="motor_vehicle=emergency"/>
 								<case additional="motorcar=emergency"/>
 								<case additional="access=emergency"/>
-								<apply color_3="$accessEmergencyColor" color_2="$null"/>
+								<apply color_3="$accessEmergencyColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=delivery"/>
 								<case additional="motor_vehicle=delivery"/>
 								<case additional="motorcar=delivery"/>
 								<case additional="access=delivery"/>
-								<apply color_3="$accessDeliveryColor" color_2="$null"/>
-							</switch>
-							<switch>
-								<case additional="ski=no"/>
-								<apply color_3="$accessSkiNoColor"/>
-							</switch>
-							<switch>
-								<case additional="vehicle=yes"/>
-								<case additional="motor_vehicle=yes"/>
-								<case additional="motorcar=yes"/>
+								<apply color_3="$accessDeliveryColor"/>
 							</switch>
 						</switch>
 					</switch>
-
-					<apply_if minzoom="15" maxzoom="15" pathEffect_3="1_8"/>
-					<apply_if minzoom="16" maxzoom="16" pathEffect_3="1_11"/>
-					<apply_if minzoom="17" maxzoom="17" pathEffect_3="1_13"/>
-					<apply_if minzoom="18" maxzoom="18" pathEffect_3="1_17"/>
-					<apply_if minzoom="19" pathEffect_3="1_20"/>
 				</switch>
 			</apply>
 		</switch>
