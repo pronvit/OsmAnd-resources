@@ -1029,8 +1029,14 @@
 			<case nightMode="true" attrColorValue="#55803B43"/>
 			<case attrColorValue="#35BB0059"/>
 		</renderingAttribute>
-		<renderingConstant name="boundaryNationalParkColor" value="#cc14332a"/>
-		<renderingConstant name="boundaryNationalParkColor2" value="#554fb999"/>
+
+		<renderingAttribute name="boundaryNationalParkColor">
+			<case noPolygons="false" attrColorValue="#cc724827"/>
+			<case attrColorValue="#cc26180d"/>
+		</renderingAttribute>
+		<renderingAttribute name="boundaryNationalParkColor2">
+			<case attrColorValue="#55e1c1a8"/>
+		</renderingAttribute>
 
 		<!-- Forest -->
 		<renderingAttribute name="woodColor">
@@ -2875,7 +2881,7 @@
 		<case tag="building" value="yes" order="-1"/>		
 		
 		<!-- Hide all buildings in underlay mode -->
-		<case noPolygons="true" tag="building" value="" order="-1"/>
+		<!-- <case noPolygons="true" tag="building" value="" order="-1"/> -->
 
 		<!-- Hide roof solar panels -->
 		<case tag="power" value="generator">
@@ -3668,7 +3674,7 @@
 			<switch minzoom="3" textColor="$placeCityVillageTextColor" textWrapWidth="20" textHaloRadius="$placeTextHaloRadiusDay" textHaloColor="$placeCityVillageTextHaloColor" textBold="true" textDy="-4">
 				<case minzoom="5" tag="place" value="city" nameTag="" intersectionMargin="15" textOrder="32" textPlacement="bottom|top">
 					<apply_if additional="capital=yes" textColor="$placeCityVillageTextColor"/>
-					<case maxzoom="5" textSize="13" textColor="$placeStateProvinceTextColor" textHaloRadius="$placeTextHaloRadiusDay" textHaloColor="$placeCityVillageTextHaloColor"/>
+					<case maxzoom="5" textSize="13" textColor="$placeStateProvinceTextColor" textHaloColor="$placeCityVillageTextHaloColor"/>
 					<case minzoom="6" maxzoom="7" textSize="14"/>
 					<case minzoom="8" textSize="18"/>
 					<apply>
@@ -3827,7 +3833,7 @@
 						<apply_if minzoom="16" textSize="15"/>
 						<apply_if minzoom="17" textSize="16"/>
 					</switch>
-					<case minzoom="$placeLocalityMinZoom" tag="place" value="locality" nameTag="" textColor="#000000" textOrder="112" textHaloColor="#bbcccccc">
+					<case minzoom="$placeLocalityMinZoom" tag="place" value="locality" nameTag="" textColor="#000000" textBold="true" textOrder="112" textHaloColor="#bbcccccc">
 						<apply textSize="13"/>
 						<apply_if minzoom="16" textSize="15"/>
 						<apply_if minzoom="17" textSize="16"/>
@@ -3886,7 +3892,7 @@
 				<apply_if nightMode="true" textColor="#9fe39f" textHaloColor="#88444444"/>
 			</case>
 
-			<switch textColor="#654321" textDy="7" textWrapWidth="25" textHaloColor="#aaf1eae4" textHaloRadius="$textHaloRadius" textItalic="true">
+			<switch textColor="#b2cca4" textDy="7" textWrapWidth="25" textHaloColor="#000000" textHaloRadius="$textHaloRadius" textBold="true" textItalic="true">
 				<switch>
 					<switch minzoom="7" tag="natural" additional="osmand_prominent_peak=yes" nameTag="">
 						<case value="peak"/>
@@ -3938,7 +3944,7 @@
 						<apply_if minzoom="10" maxzoom="10" textSize="15" />
 						<apply_if minzoom="11" maxzoom="11" textSize="18" />
 						<apply_if minzoom="12" textSize="20" />
-						<apply textHaloRadius="5" textOrder="130" textDy="0"/>
+						<apply textHaloRadius="$placeTextHaloRadiusDay" textOrder="130" textDy="0"/>
 						<apply_if textOrder="33"/>
 						<apply_if maxzoom="10" textOrder="6"/> <!-- Only if region:type is available at z10- -->
 					</switch>
@@ -7611,21 +7617,6 @@
 					<apply_if maxzoom="16" shader="nr3"/>
 					<apply_if maxzoom="16" nightMode="true" shader="nr3_night"/>
 				</switch>
-				<!-- <switch>
-					<switch>
-						<case natureReserves="true" minzoom="8" tag="boundary" value="protected_area" color="$null" color_2="#4400ae3d"/>
-						<apply>
-							<case maxzoom="11" pathEffect_2="6_3"/>
-							<case maxzoom="13" pathEffect_2="10_5"/>
-							<case minzoom="14" pathEffect_2="13_8"/>
-						</apply>
-					</switch>
-					<apply>
-						<case maxzoom="11" strokeWidth_2="1:1"/>
-						<case maxzoom="13" strokeWidth_2="2:2"/>
-						<case minzoom="14" strokeWidth_2="3.5:3.5"/>
-					</apply>
-				</switch> -->
 				<switch minzoom="12">
 					<case tag="landuse" value="quarry" shader="quarry3" color_0="#c4c2c1">
 						<apply_if nightMode="true" shader="quarry3night" color_0="#585858"/>
@@ -7649,12 +7640,7 @@
 								<apply_if nightMode="true" shader="quarry3_access_no_night" color_0="#585858"/>
 							</apply_if>
 						</switch>
-						<apply_if maxzoom="14" strokeWidth_2="4" pathEffect_2="1_7"/>
-						<apply_if minzoom="15" maxzoom="15" strokeWidth_2="5.5" pathEffect_2="1_8"/>
-						<apply_if minzoom="16" maxzoom="16" strokeWidth_2="7" pathEffect_2="1_11"/>
-						<apply_if minzoom="17" maxzoom="17" strokeWidth_2="9" pathEffect_2="1_13"/>
-						<apply_if minzoom="18" maxzoom="18" strokeWidth_2="12" pathEffect_2="1_17"/>
-						<apply_if minzoom="19" strokeWidth_2="13" pathEffect_2="1_20"/>
+						<apply_if strokeWidth_2="2" pathEffect_2="1_7"/>
 					</switch>
 				</apply_if>
 			</switch>
@@ -7673,6 +7659,45 @@
 			</case>
 			<case minzoom="11" maxzoom="14" tag="hazard" value="" shader="hazard"/>
 		</switch>
+
+		<switch noPolygons="true" maxzoom="15">
+			<switch natureReserves="true">
+				<case minzoom="6" tag="leisure" value="nature_reserve"/>
+				<case minzoom="6" tag="boundary" value="national_park"/>
+				<apply_if color="#20e1c1a8"/>
+			</switch>
+			<switch natureReserves="true">
+				<case minzoom="6" tag="landuse" value="forest"/>
+				<apply_if color="#204fb999"/>
+			</switch>
+			<switch minzoom="12">
+				<case tag="landuse" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3">
+					<apply_if nightMode="true" color_0="#33585858"/>
+				</case>
+				<case tag="abandoned:landuse" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3_abandoned">
+					<apply_if nightMode="true" color_0="#33585858"/>
+				</case>
+			</switch>
+			<case minzoom="12" maxzoom="17" tag="historic" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3_abandoned">
+				<apply_if nightMode="true" color_0="#33585858"/>
+			</case>
+			<apply_if showAccess="true" minzoom="13">
+				<switch>
+					<switch>
+						<case additional="access=private" color_2="$accessPrivateColor" cap_2="ROUND"/>
+						<case additional="access=no" color_2="$accessPrivateColor" cap_2="ROUND"/>
+						<case additional="access=permit" color_2="$accessPermitColor" cap_2="ROUND"/>
+						<apply_if natureReserves="true" tag="leisure" value="nature_reserve" shader="nature_reserve_access_no"/>
+						<apply_if natureReserves="true" tag="boundary" value="protected_area" shader="protected_area_access_no"/>
+						<apply_if tag="landuse" value="quarry" shader="quarry3_access_no" color_0="#33c4c2c1">
+							<apply_if nightMode="true" shader="quarry3_access_no_night" color_0="#33585858"/>
+						</apply_if>
+					</switch>
+					<apply_if strokeWidth_2="2" pathEffect_2="1_7"/>
+				</switch>
+			</apply_if>
+		</switch>
+
 		<switch minzoom="17">
 			<switch>
 				<case tag="building:part" value="garage"/>
@@ -7710,11 +7735,6 @@
 			<apply strokeWidth_2="0.5" pathEffect_2="2_5" color_2="#999999" color="#33AAAAAA"/>
 			<apply_if nightMode="true" color="#33444444" color_2="#808080"/>
 		</switch>
-
-		<!-- <switch noPolygons="true">
-			<case tag="leisure" value="nature_reserve"/>
-			<apply color="#4fb999"/>
-		</switch>-->
 
 		<case tag="osmand_change" value="delete"/> <!-- OSMC will break if delete -->
 	</polygon>
@@ -9385,9 +9405,9 @@
 		<switch natureReserves="true">
 			<switch>
 				<case minzoom="7" tag="osmand_national_park" value="line"/>
-				<case minzoom="13" tag="osmand_nature_reserve" value="line"/>
-				<!-- <case minzoom="13" tag="osmand_protected_area" value="line"/> -->
-				<apply cap="BUTT" strokeWidth="3" color="$boundaryNationalParkColor2" hmargin="-2.5" strokeWidth_2="1" color_2="$boundaryNationalParkColor"/>
+				<case minzoom="11" tag="osmand_nature_reserve" value="line"/>
+				<!-- <case minzoom="11" tag="osmand_protected_area" value="line"/> -->
+				<apply cap="ROUND" strokeWidth="3" color="$boundaryNationalParkColor2" hmargin="-2.5" strokeWidth_2="1" color_2="$boundaryNationalParkColor"/>
 			</switch>
 		</switch>
 
