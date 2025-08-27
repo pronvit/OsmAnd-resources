@@ -436,7 +436,6 @@
 					<apply_if additional="covered=yes" attrColorValue="#66332E"/>
 				</apply_if>
 			</case>
-			<apply_if hideOverground="true" attrColorValue="$hideOvergroundHighwayColor"/>
 		</renderingAttribute>	
 		<renderingAttribute name="trunkRoadLowZoomColor">
 			<case attrColorValue="$trunkRoadColor"/>
@@ -466,7 +465,6 @@
 					<apply_if additional="covered=yes" attrColorValue="#835C49"/>
 				</apply_if>
 			</case>
-			<apply_if hideOverground="true" attrColorValue="$hideOvergroundHighwayColor"/>
 		</renderingAttribute>
 
 		<renderingAttribute name="primaryRoadLowZoomColor">
@@ -497,7 +495,6 @@
 					<apply_if additional="covered=yes" attrColorValue="#7A6D45"/>
 				</apply_if>
 			</case>
-			<apply_if hideOverground="true" attrColorValue="$hideOvergroundHighwayColor"/>
 		</renderingAttribute>	
 
 		<renderingAttribute name="secondaryRoadLowZoomColor">
@@ -1033,12 +1030,22 @@
 		</renderingAttribute>
 
 		<renderingAttribute name="boundaryNationalParkColor">
-			<case noPolygons="false" attrColorValue="#cc724827"/>
-			<case attrColorValue="#cc26180d"/>
+			<case noPolygons="false" attrColorValue="#774fb999"/>
+			<case attrColorValue="#774fb999"/>
 		</renderingAttribute>
-		<renderingAttribute name="boundaryNationalParkColor2">
-			<case attrColorValue="#55e1c1a8"/>
+		<renderingAttribute name="boundaryForestColor">
+			<case noPolygons="false" attrColorValue="#774fb999"/>
+			<case attrColorValue="#774fb999"/>
 		</renderingAttribute>
+		<renderingAttribute name="accessPrivateColorBoundary">
+			<case nightMode="true" attrColorValue="#77B45D5D"/>
+			<case attrColorValue="#77ad0b0b"/>
+		</renderingAttribute>
+		<renderingAttribute name="accessPermitColorBoundary">
+			<case nightMode="true" attrColorValue="#773C9D7A"/>
+			<case attrColorValue="#777FE7C1"/>
+		</renderingAttribute>
+		
 
 		<!-- Forest -->
 		<renderingAttribute name="woodColor">
@@ -1073,9 +1080,14 @@
 		<renderingConstant name="forestNeedleleavedShader" value="wood_needleleaved3"/>
 		<renderingConstant name="forestMixedShader" value="wood_mixed3"/>
 
-		<renderingAttribute name="natureReserveStrokeColor">
-			<case nightMode="true" attrColorValue="#5509821F"/>
-			<case attrColorValue="#7754B265"/>
+		<renderingAttribute name="nationalParkOverlayColor">
+			<case minzoom="16" attrColorValue="#05e1c1a8"/>
+			<case attrColorValue="#30e1c1a8"/>
+		</renderingAttribute>
+
+		<renderingAttribute name="forestOverlayColor">
+			<case minzoom="16" attrColorValue="#054fb999"/>
+			<case attrColorValue="#304fb999"/>
 		</renderingAttribute>
 
 		<renderingAttribute name="landuseOrchardColor">
@@ -2221,7 +2233,7 @@
 					<case tag="natural" value="sinkhole"/>
 					<case tag="natural" value="arch"/>
 					<case tag="natural" value="tree"/>
-					<case tag="natural" value="shrub"/>
+					<!-- <case tag="natural" value="shrub"/> -->
 					<case tag="natural" value="cliff"/>
 					<case tag="natural" value=""/>
 					<case tag="region:type" value="mountain_area"/>
@@ -2241,11 +2253,10 @@
 						</apply>
 					</switch>
 					<case tag="shop" value="estate_agent" maxzoom="17" order="-1"/>
-					<case tag="shop" value="">
-					</case>
+					<case tag="shop" value=""/>
 					<case tag="craft" value=""/>
-					<case tag="tourism" value="">
-					</case>
+					<case tag="tourism" value=""/>
+					<case tag="wikicamps" value=""/>
 					<switch>
 						<case tag="historic" value="archaeological_site"/>
 						<case tag="historic" value="memorial">
@@ -2275,10 +2286,6 @@
 					<case tag="entrance" value=""/>
 					<case tag="hazard" value=""/>
 					<case tag="abandoned:place" value=""/>
-					<switch>
-						<case tag="power" value="pole"/>
-						<case tag="man_made" value="utility_pole"/>
-					</switch>
 					<case minzoom="15" tag="barrier" value=""/>
 					<switch maxzoom="16" order="-1" tag="highway" value="motorway_junction">
 						<case baseAppMode="default"/>
@@ -2485,9 +2492,9 @@
 			</switch>
 
 			<switch point="false" objectType="2" order="10">
-				<case tag="osmand_nature_reserve" value="line"/>
-				<case tag="osmand_national_park" value="line"/>
-				<!-- <case tag="osmand_protected_area" value="line"/> -->
+				<!-- <case tag="osmand_nature_reserve" value="line"/> -->
+				<!-- <case tag="osmand_national_park" value="line"/> -->
+				<case tag="osmand_protected_area" value="line"/>
 				<case tag="osmand_aboriginal_lands" value="line"/>
 				<case tag="osmand_border_zone" value="line"/>
 			</switch>
@@ -3407,7 +3414,7 @@
 								<case tag="highway" value="unclassified" textOrder="122"/>
 								<case tag="highway" value="residential" textOrder="124"/>
 								<case tag="man_made" value="bridge" textOrder="125"/>
-								<apply_if whiteLabelStyle="true" textColor="$residentialRoadColor" textHaloColor="#000000"/>
+								<apply_if whiteLabelStyle="true" textColor="#f0f0f0" textHaloColor="#000000"/>
 							</switch>
 							<switch textColor="$serviceTextColor" textHaloRadius="$textHaloRadius" textHaloColor="$tertiaryTextHaloColor">
 								<case tag="highway" value="service" textOrder="128">
@@ -3929,8 +3936,8 @@
 						<case eleUnits="" nameTag="" nameTag2="ele"/>
 						<apply textSize="11"/>
 					</case>
-					<case minzoom="16" textSize="12" tag="natural" value="cliff" nameTag="" textOnPath="true" textHaloRadius="3" textDy="0" textOrder="43"/>
-					<switch tag="natural" value="valley" nameTag="" textOnPath="true" textColor="#356B25" textHaloRadius="3" textDy="0" textOrder="43">
+					<case minzoom="16" textSize="12" tag="natural" value="cliff" nameTag="" textOnPath="true" textHaloRadius="$textHaloRadius" textDy="0" textOrder="43"/>
+					<switch tag="natural" value="valley" nameTag="" textOnPath="true" textColor="#356B25" textHaloRadius="$textHaloRadius" textDy="0" textOrder="43">
 						<case minzoom="17" textSize="20" />
 						<case minzoom="16" textSize="18" />
 						<case minzoom="15" textSize="16" />
@@ -4169,15 +4176,16 @@
 						<case minzoom="14" tag="natural" value="grassland" textOrder="250"/>
 						<case minzoom="12" tag="natural" value="fell" textOrder="250"/>
 						<case minzoom="15" tag="leisure" value="dog_park" textOrder="250"/>
-						<case minzoom="15" tag="osmand_nature_reserve" value="line" textOnPath="true" textMinDistance="100"/>
+						<!-- <case minzoom="15" tag="osmand_nature_reserve" value="line" textOnPath="true" textMinDistance="100"/> -->
 						<case minzoom="12" tag="admin_level" value="2" textOnPath="true"/>
 						<case minzoom="12" tag="admin_level" value="4" textOnPath="true"/>
 						<case minzoom="12" tag="admin_level" value="6" textOnPath="true"/>
-						<case minzoom="15" tag="osmand_national_park" value="line" textOnPath="true" textMinDistance="100"/>
+						<!-- <case minzoom="15" tag="osmand_national_park" value="line" textOnPath="true" textMinDistance="100"/> -->
+						<case minzoom="15" tag="osmand_protected_area" value="line" textOnPath="true" textMinDistance="100"/>
 						<case minzoom="13" tag="boundary" value="forestry_compartment" nameTag="ref" textOrder="103"/>
 						<case minzoom="13" tag="boundary" value="forestry_compartment" textOrder="103"/>
 						<case minzoom="18" tag="natural" value="tree" textSize="11" textDy="5" textOrder="252"/>
-						<case minzoom="19" tag="natural" value="shrub" textSize="11" textDy="5" textOrder="252"/>
+						<!-- <case minzoom="19" tag="natural" value="shrub" textSize="11" textDy="5" textOrder="252"/> -->
 						<case minzoom="18" tag="natural" value="stone" textSize="11" textDy="4"/>
 						<case minzoom="19" tag="natural" value="birds_nest" textSize="10" textDy="5"/>
 						<case minzoom="19" tag="natural" value="termite_mound" textSize="10" textDy="5"/>
@@ -5061,21 +5069,21 @@
 
 							<case minzoom="15" tag="leisure" value="stadium" textOrder="155"/>
 							<case minzoom="17" tag="leisure" value="playground" textOrder="167"/>
-							<case minzoom="19" tag="playground" value="swing"/>
-							<case minzoom="19" tag="playground" value="slide"/>
-							<case minzoom="19" tag="playground" value="structure"/>
-							<case minzoom="19" tag="playground" value="sandpit"/>
-							<case minzoom="19" tag="playground" value="springy"/>
-							<case minzoom="19" tag="playground" value="climbingframe"/>
-							<case minzoom="19" tag="playground" value="seesaw"/>
-							<case minzoom="19" tag="playground" value="roundabout"/>
-							<case minzoom="19" tag="playground" value="playhouse"/>
-							<case minzoom="19" tag="playground" value="basketswing"/>
-							<case minzoom="19" tag="playground" value="zipwire"/>
-							<case minzoom="19" tag="playground" value="balancebeam"/>
-							<case minzoom="19" tag="playground" value="horizontal_bar"/>
-							<case minzoom="19" tag="playground" value="hopscotch"/>
-							<case minzoom="19" tag="playground" value="trampoline"/>
+							<!-- <case minzoom="19" tag="playground" value="swing"/> -->
+							<!-- <case minzoom="19" tag="playground" value="slide"/> -->
+							<!-- <case minzoom="19" tag="playground" value="structure"/> -->
+							<!-- <case minzoom="19" tag="playground" value="sandpit"/> -->
+							<!-- <case minzoom="19" tag="playground" value="springy"/> -->
+							<!-- <case minzoom="19" tag="playground" value="climbingframe"/> -->
+							<!-- <case minzoom="19" tag="playground" value="seesaw"/> -->
+							<!-- <case minzoom="19" tag="playground" value="roundabout"/> -->
+							<!-- <case minzoom="19" tag="playground" value="playhouse"/> -->
+							<!-- <case minzoom="19" tag="playground" value="basketswing"/> -->
+							<!-- <case minzoom="19" tag="playground" value="zipwire"/> -->
+							<!-- <case minzoom="19" tag="playground" value="balancebeam"/> -->
+							<!-- <case minzoom="19" tag="playground" value="horizontal_bar"/> -->
+							<!-- <case minzoom="19" tag="playground" value="hopscotch"/> -->
+							<!-- <case minzoom="19" tag="playground" value="trampoline"/> -->
 							<case minzoom="17" tag="golf" value="pin" textOrder="167"/>
 							<case minzoom="16" tag="leisure" value="horse_riding"/>
 							<case minzoom="16" tag="leisure" value="water_park"/>
@@ -5307,7 +5315,7 @@
 					<apply_if textLength="0" icon=""/>
 				</switch>
 
-				<switch minzoom="17" tag="natural" value="tree" textLength="" iconOrder="150">
+				<switch minzoom="17" tag="natural" value="tree" iconOrder="150">
 					<case maxzoom="17" icon="tree_dot" intersectionMargin="5"/>
 					<switch minzoom="18">
 						<case additional="leaf_type=broadleaved" icon="natural_tree_broadleaved"/>
@@ -5318,9 +5326,9 @@
 						<case icon="natural_tree_broadleaved"/>
 						<apply iconVisibleSize="14" intersectionSizeFactor="0.9"/>
 					</switch>
-					
+					<apply_if textLength="0" icon=""/>
 				</switch>
-				<case minzoom="18" tag="natural" value="shrub" textLength="" iconOrder="129" icon="shrub_dot" intersectionMargin="5"/>				
+				<!-- <case minzoom="18" tag="natural" value="shrub" textLength="" iconOrder="129" icon="shrub_dot" intersectionMargin="5"/>				 -->
 
 				<switch>
 					<switch textLength="">
@@ -5330,6 +5338,7 @@
 						<apply_if nightMode="true" shield=""/>
 					</switch>
 					<case minzoom="17" tag="historic" value="rune_stone" icon="historic_rune_stone" shield="historic_rune_stone_shield"/>
+					<apply_if textLength="0" icon=""/>
 				</switch>
 
 				<switch minzoom="16">
@@ -5583,6 +5592,9 @@
 					<apply_if nightMode="true" shield=""/>
 				</case>
 
+				<!-- <case baseAppMode="pedestrian" minzoom="15" tag="osmand_foot_prohibited_tunnel" value="yes" icon="osmand_tunnel" shield="blue_round_small_shield"/> -->
+				<!-- <case baseAppMode="bicycle" minzoom="15" tag="osmand_bicycle_prohibited_tunnel" value="yes" icon="osmand_tunnel" shield="blue_round_small_shield"/> -->
+
 				<!-- Accommodation -->
 				<switch iconOrder="141" shield="blue_round_shield" iconVisibleSize="32">
 					<case minzoom="$hotelIconMinZoom" tag="tourism" value="apartment" icon="tourism_apartment"/>
@@ -5624,8 +5636,9 @@
 					<case additional="information=route_marker" icon="information_route_marker" shield="information_route_marker_shield"/>
 				</case>
 				<switch iconOrder="85">
-					<case minzoom="$picnicSiteIconMinZoom" tag="tourism" value="picnic_site" icon="tourism_picnic_site" shield="picnic_shield"/>
-					<case minzoom="$picnicSiteIconMinZoom" tag="leisure" value="picnic_table" icon="tourism_picnic_site" shield="picnic_shield"/>
+					<case minzoom="$picnicSiteIconMinZoom" tag="tourism" value="picnic_site" icon="picnicking" shield="blue_round_shield"/>
+					<case minzoom="$picnicSiteIconMinZoom" tag="wikicamps" value="day_use_area" icon="picnicking" shield="blue_round_shield"/>
+					<case minzoom="$picnicSiteIconMinZoom" tag="leisure" value="picnic_table" icon="picnicking" shield="blue_round_shield"/>
 				</switch>
 				<case minzoom="17" tag="leisure" value="firepit" icon="firepit" shield="firepit_shield">
 					<apply_if nightMode="true" shield=""/>
@@ -5700,14 +5713,16 @@
 						<case minzoom="14" tag="building" value="pyramid" icon="building_pyramid" iconOrder="154"/>
 						<case minzoom="16" tag="historic" value="battlefield" icon="historic_battlefield" iconOrder="158"/>
 						<case minzoom="16" tag="historic" value="locomotive" icon="locomotive" iconOrder="158"/>
-						<case minzoom="17" tag="historic" value="technical_monument" icon="technical_monument" iconOrder="158"/>
+						<case minzoom="16" tag="historic" value="technical_monument" icon="technical_monument" iconOrder="158"/>
 						<case minzoom="16" tag="historic" value="archaeological_site" icon="historic_archaeological_site" iconVisibleSize="26" iconOrder="163"/>
 						<case minzoom="16" tag="geological" value="palaeontological_site" icon="palaeontological_site" iconOrder="163"/>
 						<case minzoom="16" tag="geological" value="outcrop" icon="outcrop" iconOrder="163"/>
 						<case minzoom="15" tag="historic" value="mine" icon="historic_mine"/>
 						<case minzoom="17" tag="historic" value="charcoal_pile" icon="charcoal_pile"/>
-						<case minzoom="16" tag="highway" value="trailhead" icon="trailhead"/>
+						<case minzoom="15" tag="highway" value="trailhead" icon="trailhead"/>
+						<case minzoom="15" tag="wikicamps" value="outdoor_activity" icon="trailhead"/>
 						<case minzoom="15" tag="tourism" value="attraction" icon="attraction_map" iconOrder="150" iconVisibleSize="24" intersectionMargin="15"/>
+						<case minzoom="15" tag="wikicamps" value="attraction" icon="attraction_map" iconOrder="150" iconVisibleSize="24" intersectionMargin="15"/>
 						<apply_if nightMode="true" shield="brown_round_night_shield" iconVisibleSize="40"/>
 					</switch>
 				</switch>
@@ -5725,7 +5740,7 @@
 					<case minzoom="16" tag="golf" value="pin" icon="golf_pin" iconOrder="167" iconVisibleSize="10" intersectionSizeFactor="0.7"/>
 					<case minzoom="16" tag="golf" value="tee" icon="golf_tee" iconOrder="167"/>
 				</switch>
-				<case minzoom="18" tag="playground" value="swing" icon="playground_swing"/>
+				<!--<case minzoom="18" tag="playground" value="swing" icon="playground_swing"/>
 				<case minzoom="18" tag="playground" value="slide" icon="playground_slide"/>
 				<case minzoom="18" tag="playground" value="structure" icon="playground_structure"/>
 				<case minzoom="18" tag="playground" value="sandpit" icon="playground_sandpit"/>
@@ -5739,7 +5754,7 @@
 				<case minzoom="18" tag="playground" value="balancebeam" icon="playground_balancebeam"/>
 				<case minzoom="18" tag="playground" value="horizontal_bar" icon="playground_horizontal_bar"/>
 				<case minzoom="18" tag="playground" value="hopscotch" icon="playground_hopscotch"/>
-				<case minzoom="18" tag="playground" value="trampoline" icon="playground_trampoline"/>
+				<case minzoom="18" tag="playground" value="trampoline" icon="playground_trampoline"/>-->
 				<switch iconOrder="166" shield="green_round_shield" iconVisibleSize="40" intersectionSizeFactor="2.5">
 					<case minzoom="15" tag="leisure" value="stadium" icon="sport_stadium" iconOrder="155"/>
 					<case minzoom="16" tag="sport" value="equestrian" icon="equestrian"/>
@@ -5990,6 +6005,8 @@
 						<case minzoom="16" tag="amenity" value="research_institute" icon="research_institute"/>
 						<case minzoom="16" tag="amenity" value="ranger_station" icon="ranger_station"/>
 						<case minzoom="16" tag="amenity" value="waste_transfer_station" icon="waste_transfer_station"/>
+						<case minzoom="17" tag="amenity" value="sanitary_dump_station" icon="sanitary_dump_station_white"/>
+						<case minzoom="17" tag="wikicamps" value="dump_point" icon="sanitary_dump_station_white"/>
 						<case minzoom="16" tag="amenity" value="mobile_library" icon="mobile_library"/>
 						<case minzoom="16" tag="amenity" value="toy_library" icon="toy_library"/>
 						<case minzoom="17" tag="amenity" value="lavoir" icon="lavoir"/>
@@ -6184,6 +6201,7 @@
 						<case minzoom="17" tag="amenity" value="hookah_lounge" icon="hookah_lounge"/>
 						<switch iconOrder="171">
 							<case minzoom="$drinkingWaterIconMinZoom" tag="amenity" value="drinking_water" icon="amenity_drinking_water"/>
+							<case minzoom="$drinkingWaterIconMinZoom" tag="wikicamps" value="drinking_water" icon="amenity_drinking_water"/>
 							<apply_if minzoom="17" additional="drinking_water=yes" icon_2="drinking_water_yes_map"/>
 						</switch>
 						<apply_if nightMode="true" shield="orange_round_night_shield" iconVisibleSize="54"/>
@@ -6288,6 +6306,7 @@
 						<case minzoom="17" tag="shop" value="kiosk" icon="shop_kiosk" iconVisibleSize="32"/>
 						<case minzoom="17" tag="shop" value="kitchen" icon="kitchen"/>
 						<case minzoom="17" tag="shop" value="laundry" icon="shop_laundry"/>
+						<case minzoom="17" tag="wikicamps" value="laundromat" icon="shop_laundry" iconOrder="89"/>
 						<case minzoom="17" tag="shop" value="leather" icon="leather"/>
 						<case minzoom="17" tag="shop" value="lighting" icon="lighting"/>
 						<case minzoom="17" tag="shop" value="locksmith" icon="locksmith"/>
@@ -6686,12 +6705,6 @@
 			</case>
 			<case minzoom="17" tag="power" value="portal" icon="power_portal" shield="power_portal_shield"/>
 			<case minzoom="15" tag="aerialway" value="pylon" icon="aerialway_pylon_small" iconVisibleSize="4"/>
-			<switch>
-				<case minzoom="16" tag="power" value="pole"/>
-				<case minzoom="17" tag="man_made" value="utility_pole"/>
-				<apply icon="barrier_small_black_4"/>
-				<apply_if nightMode="true" icon="barrier_small_white_4"/>
-			</switch>
 
 			<switch minzoom="16">
 				<case tag="hazard" value="nuclear" icon="hazard_nuclear_map"/>
@@ -6757,18 +6770,7 @@
 						<apply_if nightMode="true" icon="tram_stop_small_night"/>
 					</case>
 				</case>
-				<case minzoom="15" tag="railway" value="level_crossing" icon="level_crossing_map">
-					<apply_if streetLighting="true">
-						<case additional="lit_additional=yes">
-							<apply_if nightMode="false" streetLightingNight="false" shield="street_lamp_lit_yes_shield"/>
-							<apply_if nightMode="true" shield="street_lamp_lit_yes_night_shield"/>
-						</case>
-						<case additional="lit_additional=no">
-							<apply_if nightMode="false" streetLightingNight="false" shield="street_lamp_lit_no_shield"/>
-							<apply_if nightMode="true" shield="street_lamp_lit_no_night_shield"/>
-						</case>
-					</apply_if>
-				</case>
+				<case minzoom="15" tag="railway" value="level_crossing" icon="level_crossing_map"/>
 
 				<case minzoom="13" tag="aerialway" value="station">
 					<case maxzoom="14" icon="aerialway_station_small" iconVisibleSize="3">
@@ -7124,6 +7126,7 @@
 						<apply color_0="$landuseLoggingColor"/>
 					</switch>
 				</apply>
+				<apply_if minzoom="12" cap_2="ROUND" strokeWidth_2="2" color_2="$boundaryForestColor"/>
 				<apply_if nightMode="true" shader=""/>
 			</switch>
 
@@ -7614,11 +7617,13 @@
 			</case>
 			<switch>
 				<switch natureReserves="true">
-					<case minzoom="6" tag="leisure" value="nature_reserve"/>
-					<case minzoom="8" tag="boundary" value="national_park"/>
+					<!-- <case minzoom="6" tag="leisure" value="nature_reserve"/> -->
+					<!-- <case minzoom="8" tag="boundary" value="national_park"/> -->
+					<case minzoom="6" tag="boundary" value="protected_area"/>
 					<apply color="$null"/>
 					<apply_if maxzoom="16" shader="nr3"/>
 					<apply_if maxzoom="16" nightMode="true" shader="nr3_night"/>
+					<apply_if minzoom="12" cap_2="ROUND" strokeWidth_2="2" color_2="$boundaryForestColor"/>
 				</switch>
 				<switch minzoom="12">
 					<case tag="landuse" value="quarry" shader="quarry3" color_0="#c4c2c1">
@@ -7634,16 +7639,15 @@
 				<apply_if showAccess="true" minzoom="13">
 					<switch>
 						<switch>
-							<case additional="access=private" color_2="$accessPrivateColor" cap_2="ROUND"/>
-							<case additional="access=no" color_2="$accessPrivateColor" cap_2="ROUND"/>
-							<case additional="access=permit" color_2="$accessPermitColor" cap_2="ROUND"/>
+							<case additional="access=private" color_2="$accessPrivateColorBoundary"/>
+							<case additional="access=no" color_2="$accessPrivateColorBoundary"/>
+							<case additional="access=permit" color_2="$accessPermitColorBoundary"/>
 							<apply_if natureReserves="true" tag="leisure" value="nature_reserve" shader="nature_reserve_access_no"/>
 							<apply_if natureReserves="true" tag="boundary" value="protected_area" shader="protected_area_access_no"/>
 							<apply_if tag="landuse" value="quarry" shader="quarry3_access_no" color_0="#c4c2c1">
 								<apply_if nightMode="true" shader="quarry3_access_no_night" color_0="#585858"/>
 							</apply_if>
 						</switch>
-						<apply_if strokeWidth_2="2" pathEffect_2="1_7"/>
 					</switch>
 				</apply_if>
 			</switch>
@@ -7663,17 +7667,20 @@
 			<case minzoom="11" maxzoom="14" tag="hazard" value="" shader="hazard"/>
 		</switch>
 
-		<switch noPolygons="true" maxzoom="15">
+		<switch noPolygons="true">
 			<switch natureReserves="true">
-				<case minzoom="6" tag="leisure" value="nature_reserve"/>
-				<case minzoom="6" tag="boundary" value="national_park"/>
-				<apply_if color="#20e1c1a8"/>
+				<!-- <case minzoom="6" tag="leisure" value="nature_reserve"/> -->
+				<!-- <case minzoom="6" tag="boundary" value="national_park"/> -->
+				<case minzoom="6" tag="boundary" value="protected_area"/>
+				<apply color="$nationalParkOverlayColor"/>
+				<apply_if minzoom="12" cap_2="ROUND" strokeWidth_2="2" color_2="$boundaryNationalParkColor"/>
 			</switch>
 			<switch natureReserves="true">
 				<case minzoom="6" tag="landuse" value="forest"/>
-				<apply_if color="#204fb999"/>
+				<apply color="$forestOverlayColor"/>
+				<apply_if minzoom="12" cap_2="ROUND" strokeWidth_2="2" color_2="$boundaryForestColor"/>
 			</switch>
-			<switch minzoom="12">
+			<switch minzoom="12" maxzoom="15">
 				<case tag="landuse" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3">
 					<apply_if nightMode="true" color_0="#33585858"/>
 				</case>
@@ -7681,22 +7688,21 @@
 					<apply_if nightMode="true" color_0="#33585858"/>
 				</case>
 			</switch>
-			<case minzoom="12" maxzoom="17" tag="historic" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3_abandoned">
+			<case minzoom="12" maxzoom="15" tag="historic" value="quarry" color_0="#33c4c2c1" color="#33000000" shader="quarry3_abandoned">
 				<apply_if nightMode="true" color_0="#33585858"/>
 			</case>
-			<apply_if showAccess="true" minzoom="13">
+			<apply_if showAccess="true" minzoom="12">
 				<switch>
 					<switch>
-						<case additional="access=private" color_2="$accessPrivateColor" cap_2="ROUND"/>
-						<case additional="access=no" color_2="$accessPrivateColor" cap_2="ROUND"/>
-						<case additional="access=permit" color_2="$accessPermitColor" cap_2="ROUND"/>
-						<apply_if natureReserves="true" tag="leisure" value="nature_reserve" shader="nature_reserve_access_no"/>
-						<apply_if natureReserves="true" tag="boundary" value="protected_area" shader="protected_area_access_no"/>
+						<case additional="access=private" color_2="$accessPrivateColorBoundary"/>
+						<case additional="access=no" color_2="$accessPrivateColorBoundary"/>
+						<case additional="access=permit" color_2="$accessPermitColorBoundary"/>
+						<!-- <apply_if natureReserves="true" tag="leisure" value="nature_reserve" shader="nature_reserve_access_no"/> -->
+						<!-- <apply_if natureReserves="true" tag="boundary" value="protected_area" shader="protected_area_access_no"/> -->
 						<apply_if tag="landuse" value="quarry" shader="quarry3_access_no" color_0="#33c4c2c1">
 							<apply_if nightMode="true" shader="quarry3_access_no_night" color_0="#33585858"/>
 						</apply_if>
 					</switch>
-					<apply_if strokeWidth_2="2" pathEffect_2="1_7"/>
 				</switch>
 			</apply_if>
 		</switch>
@@ -8123,13 +8129,11 @@
 							<case minzoom="14" maxzoom="14" strokeWidth="1:1" shadowColor="$residentialRoadLowZoom2ShadowColor"/>
 							<switch>
 								<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5"/>
-								<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5"/>
+								<case minzoom="16" maxzoom="16" strokeWidth="4:4"/>
 								<case minzoom="17" maxzoom="17" strokeWidth="6:6"/>
-								<case minzoom="18" maxzoom="18" strokeWidth="9:9"/>
-								<case minzoom="19" strokeWidth="10.5:10.5"/>
-								<apply shadowColor="$residentialRoadShadowColor">
-									<apply_if streetLighting="true" nightMode="true" shadowColor="#ffffff"/>
-								</apply>
+								<case minzoom="18" maxzoom="18" strokeWidth="7.2:7.2"/>
+								<case minzoom="19" strokeWidth="9:9"/>
+								<apply shadowColor="$residentialRoadShadowColor"/>
 							</switch>
 							<apply shadowRadius="$highwayShadowRadius"/>
 							<apply>
@@ -8157,7 +8161,6 @@
 								<case maxzoom="18" strokeWidth_0="10:12"/>
 								<case minzoom="19" strokeWidth_0="12:15"/>
 								<apply_if nightMode="true" color_0="#ffffff"/>
-								<apply_if hideOverground="true" color_0="$hideOvergroundBridgeUnderlayColor"/>
 							</apply_if>
 						</apply>
 						<apply_if minzoom="16"> <!-- for new OpenGL engine only -->
@@ -8460,6 +8463,48 @@
 						<apply_if maxzoom="14" pathEffect_3="1_7"/>
 					</switch>
 					<switch minzoom="14" showAccess="true">
+						<!-- this block is to ignore vehicle access tags for footways -->
+						<switch tag="highway" value="footway">
+							<switch>
+								<case additional="access=private"/>
+								<case additional="access=no"/>
+								<apply color_3="$accessPrivateColor"/>
+							</switch>
+							<switch>
+								<case additional="access=permit"/>
+								<apply color_3="$accessPermitColor"/>
+							</switch>
+							<switch>
+								<case additional="access=destination"/>
+								<apply color_3="$accessDestinationColor"/>
+							</switch>
+							<switch>
+								<case additional="access=permissive"/>
+								<apply color_3="$accessPermissiveColor"/>
+							</switch>
+							<switch>
+								<case additional="access=agricultural"/>
+								<case additional="access=agricultural;forestry"/>
+								<apply color_3="$accessAgriculturalColor"/>
+							</switch>
+							<switch>
+								<case additional="access=forestry"/>
+								<apply color_3="$accessForestryColor"/>
+							</switch>
+							<switch>
+								<case additional="access=customers"/>
+								<apply color_3="$accessCustomersColor"/>
+							</switch>
+							<switch>
+								<case additional="access=emergency"/>
+								<apply color_3="$accessEmergencyColor"/>
+							</switch>
+							<switch>
+								<case additional="access=delivery"/>
+								<apply color_3="$accessDeliveryColor"/>
+							</switch>
+							<case/>
+						</switch>
 						<switch>
 							<switch>
 								<case additional="vehicle=private"/>
@@ -8491,7 +8536,7 @@
 								<case additional="motor_vehicle=permissive"/>
 								<case additional="motorcar=permissive"/>
 								<case additional="access=permissive"/>
-								<apply color_3="$accessPermissiveColor" color_2="$null"/>
+								<apply color_3="$accessPermissiveColor"/>
 							</switch>
 							<switch>
 								<case additional="vehicle=agricultural"/>
@@ -9405,14 +9450,15 @@
 			</switch>
 		</switch>
 
-		<switch natureReserves="true">
-			<switch>
-				<case minzoom="7" tag="osmand_national_park" value="line"/>
-				<case minzoom="11" tag="osmand_nature_reserve" value="line"/>
-				<!-- <case minzoom="11" tag="osmand_protected_area" value="line"/> -->
-				<apply cap="ROUND" strokeWidth="3" color="$boundaryNationalParkColor2" hmargin="-2.5" strokeWidth_2="1" color_2="$boundaryNationalParkColor"/>
-			</switch>
-		</switch>
+		<!-- <switch natureReserves="true"> -->
+			<!-- <switch> -->
+				<!-- <case minzoom="7" tag="osmand_national_park" value="line"/> -->
+				<!-- <case minzoom="11" tag="osmand_nature_reserve" value="line"/> -->
+				<!-- <case minzoom="12" tag="osmand_protected_area" value="line"/> -->
+				<!-- <apply cap="ROUND" strokeWidth="3" color="$boundaryNationalParkColor2" hmargin="-2.5" strokeWidth_2="1" color_2="$boundaryNationalParkColor"/> -->
+				<!-- <apply cap="ROUND" strokeWidth="2" color="$protectedAreaBorderColor"/> -->
+			<!-- </switch> -->
+		<!-- </switch> -->
 
 		<switch>
 			<case minzoom="13" tag="osmand_aboriginal_lands" value="line" color="$boundaryAboriginalLandsColor"/>
