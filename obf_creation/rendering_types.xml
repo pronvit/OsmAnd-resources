@@ -4719,6 +4719,15 @@
 		<type tag="office" minzoom="15" />
 	</category>
 
+	<category name="wikicamps">
+		<type tag="wikicamps" value="laundromat" minzoom="15"/>
+		<type tag="wikicamps" value="dump_point" minzoom="15"/>
+		<type tag="wikicamps" value="drinking_water" minzoom="15"/>
+		<type tag="wikicamps" value="day_use_area" minzoom="15"/>
+		<type tag="wikicamps" value="outdoor_activity" minzoom="15"/>
+		<type tag="wikicamps" value="attraction" minzoom="15"/>
+		<type tag="wikicamps" value="camp_site" minzoom="15"/>
+	</category>
 
 	<category name="shop">
 		<type tag="shop" value="agrarian" minzoom="15" />

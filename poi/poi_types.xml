@@ -5710,4 +5710,25 @@
 		<poi_type name="osmand_foot_prohibited_tunnel" tag="osmand_foot_prohibited_tunnel" value="yes" icon="osmand_tunnel" no_edit="true"/>
 		<poi_type name="osmand_bicycle_prohibited_tunnel" tag="osmand_bicycle_prohibited_tunnel" value="yes" icon="osmand_tunnel" no_edit="true"/>
 
+		<poi_category name="WikiCamps" default_tag="wikicamps" top="true" excluded_poi_additional_category="wheelchair_accessibility,fee,payment_type,internet_access_type,opening_hours">
+			<poi_type name="Laundromat" tag="wikicamps" value="laundromat" icon="shop_laundry">
+				<poi_additional_category name="Status" icon="tourism_information">
+					<poi_additional name="Open" tag="status" value="2"/>
+					<poi_additional name="Temp Closed" tag="status" value="5"/>
+					<poi_additional name="Perm Closed" tag="status" value="6"/>
+				</poi_additional_category>
+			</poi_type>
+			<poi_type name="Dump Point" tag="wikicamps" value="dump_point" icon="sanitary_dump_station" color="#ff0000" poi_additional_category="Status">
+			</poi_type>
+			<poi_type name="Drinking Water" tag="wikicamps" value="drinking_water" icon="amenity_drinking_water" poi_additional_category="Status">
+			</poi_type>
+			<poi_type name="Day Use Area" tag="wikicamps" value="day_use_area" icon="tourism_picnic_site" color="#12037E" poi_additional_category="Status">
+			</poi_type>
+			<poi_type name="Outdoor Activity" tag="wikicamps" value="outdoor_activity" icon="trailhead" poi_additional_category="Status">
+			</poi_type>
+			<poi_type name="Attraction" tag="wikicamps" value="attraction" icon="attraction_map" poi_additional_category="Status">
+			</poi_type>
+			<poi_type name="Camp Site" tag="wikicamps" value="camp_site" icon="tourism_camp_site" color="#127E03" poi_additional_category="Status,shower">
+			</poi_type>
+		</poi_category>
 </poi_types>
