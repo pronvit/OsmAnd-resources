@@ -114,7 +114,7 @@
 			type="string" possibleValues="sacScale,caiScale" defaultValueDescription="disabled" category="other"/>
 
 		<renderingProperty attr="currentTrackColor" name="Current GPX color" description="Color of the currently recording track"
-			type="string" possibleValues="red,orange,lightblue,blue,purple,pink,dark_red,dark_green,dark_yellow,dark_blue,dark_pink,dark_cyan,dark_gray" defaultValueDescription="default"/>
+			type="string" possibleValues="red,orange,lightblue,blue,purple,pink,translucent_red,translucent_orange,translucent_lightblue,translucent_blue,translucent_purpletranslucent_pink,translucent_white,dark_red,dark_green,dark_yellow,dark_blue,dark_pink,dark_cyan,dark_gray" defaultValueDescription="default"/>
 		<renderingProperty attr="currentTrackWidth" name="Current GPX width" description="Width of the currently recording track"
 			type="string" possibleValues="thin,medium,bold" defaultValueDescription="default"/>
 

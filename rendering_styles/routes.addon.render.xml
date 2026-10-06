@@ -518,6 +518,7 @@
 		<!-- Line 11-100 -->
 		<switch area="false" objectType="2" order="80">
 			<case tag="route" value="segment" order="100"/> <!-- TravelGpx track -->
+			<case tag="osmand_gpx" value="track" order="100"/>
 			<case tag="route_dirtbike" value="" order="187"/>
 			<case tag="osmand_mtb_scale_imba" value="trail" order="189"/>
 			<case tag="climbing" value="route"/>
@@ -1080,6 +1081,56 @@
 					<apply_if additional="track_color=black" color="#000000"/>
 				</case>
 			</apply>
+		</switch>
+
+		<!-- Saved solid GPX track. Color is taken from the object's track_color attribute. -->
+		<switch minzoom="1" tag="osmand_gpx" value="track" color="#ff0000" cap="ROUND">
+			<case strokeWidth="2"/>
+			<apply>
+				<apply_if additional="width=thin">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" strokeWidth="2"/>
+				</apply_if>
+				<apply_if additional="width=medium">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" maxzoom="11" strokeWidth="2"/>
+					<apply_if minzoom="12" strokeWidth="4"/>
+				</apply_if>
+				<apply_if additional="width=bold">
+					<apply_if minzoom="3" maxzoom="5" strokeWidth="1"/>
+					<apply_if minzoom="6" maxzoom="7" strokeWidth="3"/>
+					<apply_if minzoom="8" maxzoom="9" strokeWidth="5"/>
+					<apply_if minzoom="10" maxzoom="11" strokeWidth="7"/>
+					<apply_if minzoom="12" strokeWidth="11"/>
+				</apply_if>
+				<apply_if additional="width=1" strokeWidth="1" />
+				<apply_if additional="width=2" strokeWidth="2" />
+				<apply_if additional="width=3" strokeWidth="3" />
+				<apply_if additional="width=4" strokeWidth="4" />
+				<apply_if additional="width=5" strokeWidth="5" />
+				<apply_if additional="width=6" strokeWidth="6" />
+				<apply_if additional="width=7" strokeWidth="7" />
+				<apply_if additional="width=8" strokeWidth="8" />
+				<apply_if additional="width=9" strokeWidth="9" />
+				<apply_if additional="width=10" strokeWidth="10" />
+				<apply_if additional="width=11" strokeWidth="11" />
+				<apply_if additional="width=12" strokeWidth="12" />
+				<apply_if additional="width=13" strokeWidth="13" />
+				<apply_if additional="width=14" strokeWidth="14" />
+				<apply_if additional="width=15" strokeWidth="15" />
+				<apply_if additional="width=16" strokeWidth="16" />
+				<apply_if additional="width=17" strokeWidth="17" />
+				<apply_if additional="width=18" strokeWidth="18" />
+				<apply_if additional="width=19" strokeWidth="19" />
+				<apply_if additional="width=20" strokeWidth="20" />
+				<apply_if additional="width=21" strokeWidth="21" />
+				<apply_if additional="width=22" strokeWidth="22" />
+				<apply_if additional="width=23" strokeWidth="23" />
+				<apply_if additional="width=24" strokeWidth="24" />				
+			</apply>
+			<!-- Color is the track_color attribute, written as #AARRGGBB. Width stays above so it can change with zoom. -->
+			<apply_if additional="track_color" color="attr:track_color"/>
+			<apply shadowColor="#ffffffff" shadowRadius="0.5"/>
 		</switch>
 
 		<switch minzoom="11" tag="route_type" value="cycling" cap="ROUND" rClass=".route.bicycle">
